@@ -1,1 +1,23 @@
+Problem: 
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| email       | varchar |
++-------------+---------+
+id is the primary key (column with unique values) for this table.
+Each row of this table contains an email. The emails will not contain uppercase letters.
+Write a solution to delete all duplicate emails, keeping only one unique email with the smallest id.
 
+
+Solution:
+delete p1 from person p1,person p2
+where p1.email = p2.email and p1.id>p2.id;
+
+
+// Explanation:
+The above question asks us to delete the duplicate email enteries from a given database, also it specifies to delete it from the database itself by using "delete" command
+and not using "select".
+So in order to do so I have taken two alias of the same table(database) such as 'p1' and 'p2' so that I can compare the enteries of the given table with itself.
+The logic behind it is that wherever we find a same entery of 'email' in both the tables(alias p1 and p2) which don't have same id's we delete them from the database.
+The deletion object is initialised as 'p1' and deletion is performed on 'p1' instance of the table.
