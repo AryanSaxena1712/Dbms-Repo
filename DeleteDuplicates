@@ -16,8 +16,9 @@ where p1.email = p2.email and p1.id>p2.id;
 
 
 // Explanation:
-The above question asks us to delete the duplicate email enteries from a given database, also it specifies to delete it from the database itself by using "delete" command
+The above question asks us to delete the duplicate email entries from a given database, also it specifies to delete it from the database itself by using "delete" command
 and not using "select".
 So in order to do so I have taken two alias of the same table(database) such as 'p1' and 'p2' so that I can compare the enteries of the given table with itself.
-The logic behind it is that wherever we find a same entery of 'email' in both the tables(alias p1 and p2) which don't have same id's we delete them from the database.
-The deletion object is initialised as 'p1' and deletion is performed on 'p1' instance of the table.
+The logic behind it is that wherever we find a same entry of 'email' in both the tables(alias p1 and p2) which don't have same id's we delete them from the database,
+retaining the entry with the smaller 'id' value.
+The deletion object is initialised as 'p1' and deletion is performed on 'p1' instance of the table, this helps in retaining the entry with a smaller 'id' value.
