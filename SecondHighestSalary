@@ -1,0 +1,22 @@
+//Problem Statement:
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| salary      | int  |
++-------------+------+
+id is the primary key (column with unique values) for this table.
+Each row of this table contains information about the salary of an employee.
+Write a solution to find the second highest distinct salary from the Employee table.
+
+
+//Solution:
+Select max(salary) as SecondhighestSalary
+from emloyee
+where salary<(select max(salary) from employee);
+
+//Explanation:
+Here, I have used nested queries, the first query select the max salary from the table which is smaller or less then the actual max salary of the table, which is the 
+result of the nested query after the 'where' clause.
+The nested query find the max salary of the table, the main query find the next greatest salary by compairing the result of the nested query (< max(salary)), which the 
+highest salary of the whole table.
