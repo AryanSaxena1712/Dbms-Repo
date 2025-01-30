@@ -1,0 +1,21 @@
+//Problem Statement:
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| empId       | int     |
+| name        | varchar |
+| supervisor  | int     |
+| salary      | int     |
++-------------+---------+
+empId is the column with unique values for this table.
+Each row of this table indicates the name and the ID of an employee in addition to their salary and the id of their manager.
+
+//Solution:
+Select Employee.name,Bonus.bonus from Employee
+left join Bonus on Employee.empId=Bonus.empId
+where bonus<1000 or Bonus IS NUll;
+
+//Explanation:
+In the question it is asked to include all the names and their bonus whose bonus is less than 1000. So, it is clear we need to use left join on employee table to include
+all the entries in the table, satisfying the condition that all the employees id that we are using to display their name and bonus, are either not present in Bonus table
+or have an entry of value less than 1000.
