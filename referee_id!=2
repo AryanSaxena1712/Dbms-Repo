@@ -1,0 +1,19 @@
+//Problem Statement:
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| name        | varchar |
+| referee_id  | int     |
++-------------+---------+
+In SQL, id is the primary key column for this table.
+Each row of this table indicates the id of a customer, their name, and the id of the customer who referred them.
+Find the names of the customer that are not referred by the customer with id = 2.
+
+//Solution:
+Select name from Customer
+where name not in(Select name from Customer where referee_id=2);
+
+//Explanation:
+In the solution I have used nested query, where the subquery return the entries having 'referee_id' equal to 2. The main query selects the name from the table which are
+not present int the result of the subquery.
